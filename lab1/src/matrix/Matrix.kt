@@ -7,8 +7,16 @@ class Matrix(val rows: Int, val cols: Int) {
         matrix.copyInto(this.matrix)
     }
 
+    private fun isMatrixValid() : Boolean{
+        val width = matrix[0].size
+        for(i in 1 until matrix.size) {
+            if (width != matrix[i].size) return false
+        }
+        return true
+    }
+
     private fun cofactor(p : Int, q: Int) : Matrix {
-        var result = Matrix(rows-1, cols-1)
+        val result = Matrix(rows-1, cols-1)
         var i = 0
         var j = 0
         for (row in 0 until rows) {
@@ -27,6 +35,9 @@ class Matrix(val rows: Int, val cols: Int) {
 
     val det : Int
         get(): Int {
+            if (!isMatrixValid()) {
+                throw IllegalArgumentException("All rows of a matrix must be the same length")
+            }
             if (rows != cols) {
                 throw IllegalArgumentException("The determinant can be calculated only for a square matrix")
             }
@@ -50,6 +61,9 @@ class Matrix(val rows: Int, val cols: Int) {
     }
 
     operator fun plus(other: Matrix) : Matrix {
+        if (!isMatrixValid()) {
+            throw IllegalArgumentException("All rows of a matrix must be the same length")
+        }
         if (rows != other.rows || cols != other.cols) {
             throw IllegalArgumentException("The sum can only be calculated for matrices of the same size")
         }
@@ -63,6 +77,9 @@ class Matrix(val rows: Int, val cols: Int) {
     }
 
     operator fun minus(other: Matrix) : Matrix {
+        if (!isMatrixValid()) {
+            throw IllegalArgumentException("All rows of a matrix must be the same length")
+        }
         if (rows != other.rows || cols != other.cols) {
             throw IllegalArgumentException("The difference can only be calculated for matrices of the same size")
         }
@@ -76,6 +93,9 @@ class Matrix(val rows: Int, val cols: Int) {
     }
 
     operator fun times(other: Matrix) : Matrix {
+        if (!isMatrixValid()) {
+            throw IllegalArgumentException("All rows of a matrix must be the same length")
+        }
         if (cols != other.rows)
             throw IllegalArgumentException(
                 "The product can be calculated only if left matrix columns same as right matrix rows")
