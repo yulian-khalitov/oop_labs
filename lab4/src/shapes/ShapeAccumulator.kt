@@ -1,7 +1,7 @@
 package shapes
 
 class ShapeAccumulator {
-    val shapes = mutableListOf<Shape>()
+    private val shapes = mutableListOf<Shape>()
 
     fun add(shape: Shape) = shapes.add(shape)
 
@@ -33,5 +33,5 @@ class ShapeAccumulator {
 
     override fun hashCode() = shapes.hashCode()
 
-    inline fun forEach(action: (Shape) -> Unit) = shapes.forEach { action(it) }
+    fun forEach(action: (Shape) -> Unit) = shapes.forEach { action(it) }
 }
