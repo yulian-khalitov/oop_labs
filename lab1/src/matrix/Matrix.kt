@@ -4,15 +4,11 @@ class Matrix(val rows: Int, val cols: Int) {
     private val matrix = Array(rows) {Array(cols) {0} }
 
     constructor(matrix: Array<Array<Int>>) : this(matrix.size, matrix[0].size)  {
-        matrix.copyInto(this.matrix)
-    }
-
-    private fun isMatrixValid() : Boolean{
         val width = matrix[0].size
         for(i in 1 until matrix.size) {
-            if (width != matrix[i].size) return false
+            if (width != matrix[i].size) throw IllegalArgumentException("All rows of a matrix must be the same length")
         }
-        return true
+        matrix.copyInto(this.matrix)
     }
 
     private fun cofactor(p : Int, q: Int) : Matrix {
@@ -35,9 +31,6 @@ class Matrix(val rows: Int, val cols: Int) {
 
     val det : Int
         get(): Int {
-            if (!isMatrixValid()) {
-                throw IllegalArgumentException("All rows of a matrix must be the same length")
-            }
             if (rows != cols) {
                 throw IllegalArgumentException("The determinant can be calculated only for a square matrix")
             }
@@ -61,9 +54,6 @@ class Matrix(val rows: Int, val cols: Int) {
     }
 
     operator fun plus(other: Matrix) : Matrix {
-        if (!isMatrixValid()) {
-            throw IllegalArgumentException("All rows of a matrix must be the same length")
-        }
         if (rows != other.rows || cols != other.cols) {
             throw IllegalArgumentException("The sum can only be calculated for matrices of the same size")
         }
@@ -77,9 +67,6 @@ class Matrix(val rows: Int, val cols: Int) {
     }
 
     operator fun minus(other: Matrix) : Matrix {
-        if (!isMatrixValid()) {
-            throw IllegalArgumentException("All rows of a matrix must be the same length")
-        }
         if (rows != other.rows || cols != other.cols) {
             throw IllegalArgumentException("The difference can only be calculated for matrices of the same size")
         }
@@ -93,9 +80,6 @@ class Matrix(val rows: Int, val cols: Int) {
     }
 
     operator fun times(other: Matrix) : Matrix {
-        if (!isMatrixValid()) {
-            throw IllegalArgumentException("All rows of a matrix must be the same length")
-        }
         if (cols != other.rows)
             throw IllegalArgumentException(
                 "The product can be calculated only if left matrix columns same as right matrix rows")
