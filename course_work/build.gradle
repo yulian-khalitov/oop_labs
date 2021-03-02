@@ -1,0 +1,38 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.4.10'
+}
+
+javafx {
+    version = "15.0.1"
+    modules = ['javafx.controls', 'javafx.graphics']
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+
+dependencies {
+    compile 'com.googlecode.ez-vcard:ez-vcard:0.11.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation 'no.tornado:tornadofx:2.0.0-SNAPSHOT'
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget= 1.8
+}
+
+apply plugin: "application"
+
+mainClassName = 'app.MyApp'
+
+application {
+    applicationDefaultJvmArgs = ['--add-opens=javafx.graphics/javafx.scene=ALL-UNNAMED']
+}
