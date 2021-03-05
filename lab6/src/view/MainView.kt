@@ -54,25 +54,25 @@ class MainView : View("Shapes App") {
             button("Create Rectangle") {
                 useMaxWidth = true
                 action {
-                    openInternalWindow<RectangleView>()
+                    RectangleView().openWindow()
                 }
             }
             button("Create Circle") {
                 useMaxWidth = true
                 action {
-                    openInternalWindow<CircleView>()
+                    CircleView().openWindow()
                 }
             }
             button("Create Square") {
                 useMaxWidth = true
                 action {
-                    openInternalWindow<SquareView>()
+                    SquareView().openWindow()
                 }
             }
             button("Create Triangle") {
                 useMaxWidth = true
                 action {
-                    openInternalWindow<TriangleView>()
+                    TriangleView().openWindow()
                 }
             }
         }

@@ -22,7 +22,6 @@ class RectangleView : View("Create Rectangle") {
         hbox {
             button("CANCEL") {
                 action {
-                    clearView()
                     close()
                 }
             }
@@ -34,7 +33,6 @@ class RectangleView : View("Create Rectangle") {
                             shapes.add(rectangle)
                             ShapeSerial.save(shapes)
                         }
-                        clearView()
                         close()
                     } catch (e: Exception) {
                         when (e) {
@@ -50,11 +48,5 @@ class RectangleView : View("Create Rectangle") {
                 }
             }
         }
-    }
-
-    fun clearView() {
-        heightField.clear()
-        widthField.clear()
-        status.value = ""
     }
 }

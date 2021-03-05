@@ -27,7 +27,6 @@ class TriangleView : View("Create Triangle") {
         hbox {
             button("CANCEL") {
                 action {
-                    clearView()
                     close()
                 }
             }
@@ -43,7 +42,6 @@ class TriangleView : View("Create Triangle") {
                             shapes.add(triangle)
                             ShapeSerial.save(shapes)
                         }
-                        clearView()
                         close()
                     } catch (e: Exception) {
                         when (e) {
@@ -59,12 +57,5 @@ class TriangleView : View("Create Triangle") {
                 }
             }
         }
-    }
-
-    fun clearView() {
-        aField.clear()
-        bField.clear()
-        cField.clear()
-        status.value = ""
     }
 }

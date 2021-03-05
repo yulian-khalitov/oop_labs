@@ -19,7 +19,6 @@ class CircleView : View("Create Circle") {
         hbox {
             button("CANCEL") {
                 action {
-                    clearView()
                     close()
                 }
             }
@@ -31,7 +30,6 @@ class CircleView : View("Create Circle") {
                             shapes.add(circle)
                             ShapeSerial.save(shapes)
                         }
-                        clearView()
                         close()
                     } catch (e: Exception) {
                         when (e) {
@@ -47,10 +45,5 @@ class CircleView : View("Create Circle") {
                 }
             }
         }
-    }
-
-    fun clearView() {
-        radiusField.clear()
-        status.value = ""
     }
 }

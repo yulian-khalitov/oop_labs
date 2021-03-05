@@ -20,7 +20,6 @@ class SquareView : View("Create Square") {
         hbox {
             button("CANCEL") {
                 action {
-                    clearView()
                     close()
                 }
             }
@@ -32,7 +31,6 @@ class SquareView : View("Create Square") {
                             shapes.add(square)
                             ShapeSerial.save(shapes)
                         }
-                        clearView()
                         close()
                     } catch (e: Exception) {
                         when (e) {
@@ -48,10 +46,5 @@ class SquareView : View("Create Square") {
                 }
             }
         }
-    }
-
-    fun clearView() {
-        heightField.clear()
-        status.value = ""
     }
 }
