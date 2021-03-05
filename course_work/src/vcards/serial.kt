@@ -30,7 +30,6 @@ object VCardSerial {
         writer.use {
             vcards.forEach { vcard ->
                 it.write(vcard)
-                println("meow")
             }
         }
     }
