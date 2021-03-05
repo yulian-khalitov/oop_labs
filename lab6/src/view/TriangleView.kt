@@ -2,6 +2,7 @@ package view
 import javafx.beans.property.SimpleStringProperty
 import javafx.scene.control.TextField
 import shapes.Triangle
+import shapes.ShapeSerial
 import tornadofx.*
 
 class TriangleView : View("Create Triangle") {

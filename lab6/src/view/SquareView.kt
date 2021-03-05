@@ -2,6 +2,7 @@ package view
 import javafx.beans.property.SimpleStringProperty
 import javafx.scene.control.TextField
 import shapes.Square
+import shapes.ShapeSerial
 import tornadofx.*
 
 

@@ -2,6 +2,7 @@ package view
 import javafx.beans.property.SimpleStringProperty
 import javafx.scene.control.TextField
 import shapes.Rectangle
+import shapes.ShapeSerial
 import tornadofx.*
 
 class RectangleView : View("Create Rectangle") {

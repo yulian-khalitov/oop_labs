@@ -2,6 +2,7 @@ package view
 import javafx.beans.property.SimpleStringProperty
 import javafx.scene.control.TextField
 import shapes.Circle
+import shapes.ShapeSerial
 import tornadofx.*
 
 
