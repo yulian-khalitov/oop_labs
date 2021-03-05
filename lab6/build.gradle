@@ -28,4 +28,6 @@ compileKotlin {
 
 apply plugin: "application"
 
+sourceSets.main.java.srcDirs = ['src']
+
 mainClassName = 'app.MyApp'
